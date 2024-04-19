@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class Ticker extends Equatable {
   final String name;
-  final String fulllName;
+  final String fullName;
   final String image;
   final String graphic;
   final double price;
@@ -10,7 +10,7 @@ class Ticker extends Equatable {
 
   const Ticker({
     required this.name,
-    required this.fulllName,
+    required this.fullName,
     required this.image,
     required this.graphic,
     required this.price,
@@ -19,5 +19,5 @@ class Ticker extends Equatable {
 
 
   @override
-  List<Object> get props => [name, fulllName, image, graphic, price, change];
+  List<Object> get props => [name, fullName, image, graphic, price, change];
 }

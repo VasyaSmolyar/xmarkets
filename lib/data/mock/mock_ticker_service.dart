@@ -7,7 +7,7 @@ class MockTickerService extends Service<String, List<Ticker>> {
   static const List<Ticker> _dummyTickers = [
     Ticker(
       name: 'AAPL', 
-      fulllName: 'Apple Inc', 
+      fullName: 'Apple Inc', 
       image: 'assets/image/ticker/APPL.png',
       price: 122.99,
       change: 5.13, 
@@ -15,7 +15,7 @@ class MockTickerService extends Service<String, List<Ticker>> {
     ),
     Ticker(
       name: 'AMZN', 
-      fulllName: 'Amazon.com, Inc.', 
+      fullName: 'Amazon.com, Inc.', 
       image: 'assets/image/ticker/AMZN.png',
       price: 3000.00,
       change: -20.00, 
@@ -23,7 +23,7 @@ class MockTickerService extends Service<String, List<Ticker>> {
     ),
     Ticker(
       name: 'GOOGL', 
-      fulllName: 'Alphabet Inc.', 
+      fullName: 'Alphabet Inc.', 
       image: 'assets/image/ticker/GOOGL.png',
       price: 1500.00,
       change: 10.00, 
@@ -31,7 +31,7 @@ class MockTickerService extends Service<String, List<Ticker>> {
     ),
     Ticker(
       name: 'TSLA', 
-      fulllName: 'Tesla, Inc.', 
+      fullName: 'Tesla, Inc.', 
       image: 'assets/image/ticker/TSLA.png',
       price: 800.00,
       change: -3.10, 
@@ -39,7 +39,7 @@ class MockTickerService extends Service<String, List<Ticker>> {
     ),
     Ticker(
       name: 'MARA', 
-      fulllName: 'Marathon Digital Holdings, Inc.', 
+      fullName: 'Marathon Digital Holdings, Inc.', 
       image: 'assets/image/ticker/MARA.png',
       price: 50.00,
       change: 0.51, 

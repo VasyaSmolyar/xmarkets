@@ -18,15 +18,22 @@ class TickerList extends StatelessWidget {
               leading: CircleAvatar(child: Image.asset(ticker.image)),
               title: Text(ticker.name),
               subtitle: Text(ticker.fullName),
-              trailing: Row(children: [
-                Image.asset(ticker.image),
-                Column(
+              trailing: SizedBox(
+                width: 100,
+                height: 50,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('${ticker.price}\$'),
-                    Text('${ticker.change}%'),
+                    Image.asset(ticker.graphic),
+                    Column(
+                      children: [
+                        Text('${ticker.price}\$'),
+                        Text('${ticker.change}%'),
+                      ],
+                    )
                   ],
-                )
-              ],),
+                ),
+              ),
             );
           },
         )

@@ -3,12 +3,12 @@ import 'package:xmarkets/model/ticker.dart';
 import 'package:xmarkets/repository/service.dart';
 
 @immutable
-class MockTickerService extends Service<String, List<Ticker>> {
+class MockTickerService extends Service<String?, List<Ticker>> {
   static const List<Ticker> _dummyTickers = [
     Ticker(
       name: 'AAPL', 
       fullName: 'Apple Inc', 
-      image: 'assets/image/ticker/APPL.png',
+      image: 'assets/image/ticker/AAPL.png',
       price: 122.99,
       change: 5.13, 
       graphic: 'assets/image/ticker/long.png',
@@ -48,5 +48,5 @@ class MockTickerService extends Service<String, List<Ticker>> {
   ];
 
   @override
-  Future<List<Ticker>> post(String input) async => _dummyTickers;
+  Future<List<Ticker>> post(String? input) async => _dummyTickers;
 }

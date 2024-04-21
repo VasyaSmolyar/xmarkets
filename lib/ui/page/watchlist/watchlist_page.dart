@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xmarkets/bloc/ticker/ticker_bloc.dart';
+import 'package:xmarkets/bloc/ticker/ticker_event.dart';
 import 'package:xmarkets/bloc/ticker/ticker_state.dart';
 import 'package:xmarkets/ui/widgets/ticker/ticker_list.dart';
 
-class WatchListPage extends StatelessWidget {
+class WatchListPage extends StatefulWidget {
   const WatchListPage({super.key});
+
+  @override
+  State<WatchListPage> createState() => _WatchListPageState();
+}
+
+class _WatchListPageState extends State<WatchListPage> {
+  @override
+  void initState() {
+    context.read<TickerBloc>().add(LoadTickerEvent());
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +35,16 @@ class WatchListPage extends StatelessWidget {
           }
           if (state is ReceivedTickerState) {
             return SizedBox(
+              height: 800,
+              width: MediaQuery.of(context).size.width,
               child: TickerList(tickers: state.tickers),
             );
           }
+          if (state is ErrorTickerState) {
+            return Text('Error: ${state.errorMessage}');
+          }
 
-          return const Text('Error');
+          return const Text('Initial');
         },
       ),
     );

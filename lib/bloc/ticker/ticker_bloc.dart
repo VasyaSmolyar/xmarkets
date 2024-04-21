@@ -17,7 +17,7 @@ import 'package:xmarkets/repository/service.dart';
 ///I did this so that the UI does not need access to 2 blocs every time
 ///it needs to request new [Ticker]s.
 class TickerBloc extends Bloc<TickerEvent, TickerState> {
-  final Service<String?, List<Ticker>> _tickerService;
+  final Service _tickerService;
 
   ///Creates one [TickerBloc]
   ///

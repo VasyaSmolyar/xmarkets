@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:xmarkets/bloc/ticker/ticker_bloc.dart';
+import 'package:xmarkets/bloc/ticker/ticker_state.dart';
 import 'package:xmarkets/ui/widgets/ticker/ticker_list.dart';
 
 class WatchListPage extends StatelessWidget {
@@ -10,8 +13,21 @@ class WatchListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Sample Code'),
       ),
-      body: SizedBox(
-        child: TickerList(tickers: []),
+      body: BlocBuilder<TickerBloc, TickerState>(
+        builder: (BuildContext context, TickerState state) { 
+          if (state is LoadingTickerState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is ReceivedTickerState) {
+            return SizedBox(
+              child: TickerList(tickers: state.tickers),
+            );
+          }
+
+          return const Text('Error');
+        },
       ),
     );
   }

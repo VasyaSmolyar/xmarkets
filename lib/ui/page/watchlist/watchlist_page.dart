@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xmarkets/bloc/ticker/ticker_bloc.dart';
 import 'package:xmarkets/bloc/ticker/ticker_event.dart';
 import 'package:xmarkets/bloc/ticker/ticker_state.dart';
+import 'package:xmarkets/ui/widgets/scaffold/custom_scaffold.dart';
 import 'package:xmarkets/ui/widgets/ticker/ticker_list.dart';
 
 class WatchListPage extends StatefulWidget {
@@ -22,11 +23,8 @@ class _WatchListPageState extends State<WatchListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sample Code'),
-      ),
-      body: BlocBuilder<TickerBloc, TickerState>(
+    return CustomScaffold(
+      child: BlocBuilder<TickerBloc, TickerState>(
         builder: (BuildContext context, TickerState state) { 
           if (state is LoadingTickerState) {
             return const Center(
